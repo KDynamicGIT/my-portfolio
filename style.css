@@ -125,6 +125,76 @@ nav ul li a:hover {
   color: #ccc;
   font-size: 0.95rem;
 }
+  .skill-section {
+      padding: 50px 30px;
+    }
+
+    .skill-section h2 {
+      font-size: 2rem;
+      color: #7f5af0;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .skill-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+
+    .skill-card {
+      flex: 0 0 300px;
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+
+    .skill-card h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+      .certification-section {
+      padding: 50px 30px;
+    }
+
+    .certification-section h2 {
+      font-size: 2rem;
+      color: #7f5af0;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .certification-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+
+    .certification-card {
+      flex: 0 0 300px;
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+
+    .certification-card h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .certificationx-card p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
 
 footer {
   text-align: center;
