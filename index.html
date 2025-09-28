@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Krish Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-   <nav>
+
+  <nav>
     <div class="logo">Krish's Portfolio</div>
     <ul>
       <li><a href="#">Home</a></li>
@@ -94,80 +97,5 @@
 
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="script.js"></script>
-
-  <script>
-    // 1. Function to handle Text-to-Speech (TTS)
-    function speak(text) {
-      // Check if the browser supports SpeechSynthesis
-      if (!('speechSynthesis' in window)) {
-        console.error('Speech synthesis not supported in this browser.');
-        return;
-      }
-      
-      const speech = new SpeechSynthesisUtterance(text);
-      speech.lang = "en-US";
-      
-      // Use this check to prevent stacking too many speech requests
-      if (!window.speechSynthesis.speaking) {
-        window.speechSynthesis.speak(speech);
-      }
-    }
-
-    // 2. Function to handle Speech Recognition
-    function startListening() {
-      // Check if the browser supports Speech Recognition
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRecognition) {
-        document.getElementById("output").innerText = "Speech Recognition not supported in this browser.";
-        console.error('Speech Recognition not supported.');
-        return;
-      }
-      
-      const recognition = new SpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.interimResults = false; // Only return final results
-
-      // Start the recognition service
-      recognition.start();
-      document.getElementById("output").innerText = "Listening...";
-      
-      // Handle the result when speech is detected
-      recognition.onresult = (event) => {
-        // Get the recognized text
-        const userText = event.results[0][0].transcript.toLowerCase();
-        document.getElementById("output").innerText = "You said: " + userText;
-
-        // Check for specific commands
-        if (userText.includes("resume")) {
-          speak("Opening resume.");
-          // IMPORTANT: Replace "resume.pdf" with the actual path to your file
-          window.location.href = "resume.pdf"; 
-        } else {
-          speak("I heard: " + userText + ". Please say 'Resume' to open your document.");
-        }
-      };
-      
-      // Restart listening if the session ends naturally (e.g., after silence)
-      recognition.onend = () => {
-        // You might want to remove this if you only want it to listen once
-        // startListening(); 
-        document.getElementById("output").innerText = "Ready. Say 'Resume' to open the PDF.";
-      };
-      
-      // Handle errors
-      recognition.onerror = (event) => {
-        console.error('Speech Recognition Error: ' + event.error);
-        document.getElementById("output").innerText = "Error: " + event.error;
-      };
-    }
-
-    // 3. Initialisation on page load
-    window.onload = () => {
-      speak("Hello, welcome to the most advanced AI Portfolio . so what you first want to see in my boss?");
-      
-      // Use a timeout to ensure the TTS has started before starting recognition
-      setTimeout(startListening, 3000); 
-    };
-  </script>
 </body>
 </html>
